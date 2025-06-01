@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://CodeSync-Rishabh.vercel.app",
+        origin: "https://code-sync-rishabh.vercel.app",
         methods: ["GET", "POST"],
     },
     pingInterval: 25000, // Send heartbeat every 25 seconds
