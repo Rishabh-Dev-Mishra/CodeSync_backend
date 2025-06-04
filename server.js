@@ -10,7 +10,7 @@ const io = new Server(server, {
     cors: {
         origin: "https://code-sync-rd.vercel.app",
         methods: ["GET", "POST"],
-    }
+    },
     pingInterval: 25000,
     pingTimeout: 60000, 
 });
