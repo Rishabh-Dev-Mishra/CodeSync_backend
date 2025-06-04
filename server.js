@@ -1,18 +1,18 @@
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
-import ACTIONS from "./Actions.js";
+import ACTIONS from "./src/Actions.js";
 
 const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://code-sync-rishabh.vercel.app",
+        origin: "https://code-sync-rd.vercel.app",
         methods: ["GET", "POST"],
-    },
-    pingInterval: 25000, // Send heartbeat every 25 seconds
-    pingTimeout: 60000, // Disconnect if no response for 60 seconds
+    }
+    pingInterval: 25000,
+    pingTimeout: 60000, 
 });
 
 const userSocketMap = {};
@@ -68,6 +68,9 @@ io.on("connection", (socket) => {
     } catch (error) {
         console.error("❌ Socket error:", error);
     }
+});
+app.get("/", (req, res) => {
+    res.send("Server is running");
 });
 
 const PORT = process.env.PORT || 5000;
